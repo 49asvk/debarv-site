@@ -3,55 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DebArv</title>
+  <title>DebArv - Blogs & Projects</title>
   <link rel="icon" href="favicon.ico" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      text-align: center;
-      padding: 100px 20px;
-      color: #333;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2em;
-    }
-    nav {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #007acc;
-      font-weight: 500;
-    }
-    footer {
-      margin-top: 5rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Deb & Arv</h1>
-  <p>Our journey begins soon. Stay tuned!</p>
+  <!-- Navigation Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <div class="logo-placeholder">❤️</div>
+        <a href="/">DebArv</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="https://arv.debarv.com" class="nav-resume" target="_blank">Arv's Resume</a></li>
+        <li><a href="https://deb.debarv.com" class="nav-resume" target="_blank">Deb's Resume</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
 
-  <nav>
-    <a href="https://arv.debarv.com">Arv Porfolio</a>
-    <a href="https://deb.debarv.com">Deb Portfolio</a>
-    <!-- <a href="https://debarv-auth.web.app/login.html" target="_blank">Private</a>
-    <a href="blogs.html">Blogs</a> -->
-  </nav>
-  <footer>
-    &copy; 2025 DebArv | Built with love, logic, and a little bit of poetry 💫
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Deb & Arv</h1>
+      <p>Welcome to our creative space filled with ideas, projects, and adventures</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Who We Are</h3>
+          <p>We're a passionate duo combining design and development expertise. Deb brings creative vision and design thinking, while Arv delivers robust technical solutions. Together, we create beautiful, functional digital experiences.</p>
+        </div>
+        <div class="about-card">
+          <h3>What We Do</h3>
+          <p>We build innovative projects, experiment with new technologies, and share our journey through blogs. From web applications to creative tools, we love turning ideas into reality and solving problems with elegant solutions.</p>
+        </div>
+        <div class="about-card">
+          <h3>Our Mission</h3>
+          <p>To create meaningful digital solutions, share knowledge with our community, and continuously push the boundaries of what's possible. We believe in open collaboration, learning, and building things that matter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blogs Section -->
+  <section id="blogs" class="blogs">
+    <div class="container">
+      <h2>Latest Blogs</h2>
+      <div class="blog-grid" id="blogGrid">
+        <!-- Blog tiles will be loaded here by JavaScript -->
+      </div>
+      <div class="view-all">
+        <a href="blog.html" class="btn btn-secondary">View All Blogs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Our Projects</h2>
+      <div class="project-grid" id="projectGrid">
+        <!-- Project tiles will be loaded here by JavaScript -->
+      </div>
+      <div class="view-all">
+        <a href="#projects" class="btn btn-secondary">Explore More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 DebArv | Built with love, logic, and a little bit of poetry 💫</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
 

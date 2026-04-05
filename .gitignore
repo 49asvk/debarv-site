@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Operating System
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Build outputs
+dist/
+build/
+*.map
+
+# Logs
+npm-debug.log
+yarn-error.log
+*.log
+
+# Internal documentation (not for users)
+INDEX.md
+QUICK_REFERENCE.md
+README_REDESIGN.md
+STRUCTURE.md
+DESIGN.md
+SETUP_SUMMARY.md
+TRANSFORMATION.md
+COMPLETION_SUMMARY.md
+DELIVERY_MANIFEST.md
+
+# Metadata files (internal use only)
+blogs/metadata.json
+projects/metadata.json
+
+# Temporary files
+*.tmp
+*.bak
+.cache/
