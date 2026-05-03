@@ -1,97 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DebArv - Blogs & Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atharv Kolekar — DebArv</title>
+  <meta name="description" content="Atharv (Arv) Kolekar — Data Scientist, GIS Specialist, and developer based in Bengaluru." />
   <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Navigation Header -->
+
+  <!-- ── Header ──────────────────────────────────────────────────── -->
   <header class="header">
-    <nav class="navbar">
-      <div class="logo">
-        <div class="logo-placeholder">❤️</div>
-        <a href="/">DebArv</a>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="https://arv.debarv.com" class="nav-resume" target="_blank">Arv's Resume</a></li>
-        <li><a href="https://deb.debarv.com" class="nav-resume" target="_blank">Deb's Resume</a></li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">&lt;<span> DebArv </span>/&gt;</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="chatroom.html">Chatroom</a></li>
+        </ul>
+        <div class="nav-right">
+          <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+          <button id="hamburger" class="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Deb & Arv</h1>
-      <p>Welcome to our creative space filled with ideas, projects, and adventures</p>
-    </div>
-  </section>
+  <!-- ── Mobile Nav ───────────────────────────────────────────────── -->
+  <div id="mobile-nav" class="mobile-nav">
+    <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="projects.html">Projects</a>
+    <a href="chatroom.html">Chatroom</a>
+  </div>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>Who We Are</h3>
-          <p>We're a passionate duo combining design and development expertise. Deb brings creative vision and design thinking, while Arv delivers robust technical solutions. Together, we create beautiful, functional digital experiences.</p>
+  <main>
+
+    <!-- ── Hero ──────────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="container">
+        <p class="hero-label">// hello, world — based in Bengaluru, India</p>
+        <h1>Atharv <span class="accent">Kolekar</span></h1>
+        <p class="hero-role">
+          <span id="typed-role"></span><span class="cursor"></span>
+        </p>
+        <p class="hero-tagline">
+          Geospatial analyst, data scientist, and developer. I build things at the intersection of
+          spatial data, AI, and the web — from satellite crop maps to citizen science platforms.
+        </p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">View Projects →</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
         </div>
-        <div class="about-card">
-          <h3>What We Do</h3>
-          <p>We build innovative projects, experiment with new technologies, and share our journey through blogs. From web applications to creative tools, we love turning ideas into reality and solving problems with elegant solutions.</p>
+      </div>
+    </section>
+
+    <!-- ── About ─────────────────────────────────────────────────── -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-title">About</p>
+        <div class="about-grid">
+          <div class="about-photo">
+            <img src="assets/Profile.jpg" alt="Atharv Kolekar" />
+          </div>
+          <div class="about-text">
+            <h2>A bit about me</h2>
+            <p>
+              I'm Atharv — Arv for short. I'm currently pursuing an M.Sc. in Data Science &amp;
+              Spatial Analytics at the Symbiosis Institute of Geoinformatics, while working as a
+              Presales Intern at ESRI India in Bengaluru.
+            </p>
+            <p>
+              My work spans geospatial analytics, machine learning, and full-stack development.
+              I've built citizen science WebGIS platforms, trained deep learning models on satellite
+              imagery, published a research paper on Digital Twins and XR, and engineered AI-powered
+              therapy tools. I like working on things that have a real-world impact.
+            </p>
+            <div class="tags" style="margin-top:1.5rem;">
+              <span class="tag">Geospatial</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">Open Source</span>
+              <span class="tag">Research</span>
+              <span class="tag">Privacy</span>
+            </div>
+          </div>
         </div>
-        <div class="about-card">
-          <h3>Our Mission</h3>
-          <p>To create meaningful digital solutions, share knowledge with our community, and continuously push the boundaries of what's possible. We believe in open collaboration, learning, and building things that matter.</p>
+      </div>
+    </section>
+
+    <!-- ── Skills ─────────────────────────────────────────────────── -->
+    <section class="section" id="skills" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="container">
+        <p class="section-title">Skills</p>
+        <div class="section-heading"><h2>Tech I work with</h2></div>
+        <div class="skills-grid">
+          <!-- Languages -->
+          <div class="skill-item"><div class="icon">🐍</div><span>Python</span></div>
+          <div class="skill-item"><div class="icon">🌐</div><span>JavaScript</span></div>
+          <div class="skill-item"><div class="icon">🎨</div><span>HTML / CSS</span></div>
+          <div class="skill-item"><div class="icon">🗄️</div><span>SQL / PostgreSQL</span></div>
+          <div class="skill-item"><div class="icon">☕</div><span>PHP</span></div>
+          <div class="skill-item"><div class="icon">⚙️</div><span>C</span></div>
+          <!-- GIS / Remote Sensing -->
+          <div class="skill-item"><div class="icon">🗺️</div><span>ArcGIS Pro</span></div>
+          <div class="skill-item"><div class="icon">🛰️</div><span>Google Earth Engine</span></div>
+          <div class="skill-item"><div class="icon">🌍</div><span>ESRI Suite</span></div>
+          <div class="skill-item"><div class="icon">📡</div><span>IoT</span></div>
+          <!-- Data Science -->
+          <div class="skill-item"><div class="icon">🐼</div><span>Pandas / NumPy</span></div>
+          <div class="skill-item"><div class="icon">🔥</div><span>PyTorch</span></div>
+          <div class="skill-item"><div class="icon">📊</div><span>PowerBI / Looker</span></div>
+          <div class="skill-item"><div class="icon">📈</div><span>Matplotlib</span></div>
+          <!-- Tools -->
+          <div class="skill-item"><div class="icon">🐙</div><span>Git / GitHub</span></div>
+          <div class="skill-item"><div class="icon">🅱️</div><span>Bootstrap</span></div>
+          <div class="skill-item"><div class="icon">☁️</div><span>Firebase</span></div>
+          <div class="skill-item"><div class="icon">🤖</div><span>Claude / LLMs</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Blogs Section -->
-  <section id="blogs" class="blogs">
-    <div class="container">
-      <h2>Latest Blogs (Work in Progress)</h2>
-      <div class="blog-grid" id="blogGrid">
-        <!-- Blog tiles will be loaded here by JavaScript -->
-      </div>
-      <div class="view-all">
-        <a href="blog.html" class="btn btn-secondary">View All Blogs</a>
-      </div>
-    </div>
-  </section>
+    <!-- ── Unified Timeline ────────────────────────────────────────── -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <p class="section-title">Journey</p>
+        <div class="section-heading"><h2>Experience &amp; Education</h2></div>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2>Our Projects (Work in Progress)</h2>
-      <div class="project-grid" id="projectGrid">
-        <!-- Project tiles will be loaded here by JavaScript -->
-      </div>
-      <div class="view-all">
-        <a href="#projects" class="btn btn-secondary">Explore More</a>
-      </div>
-    </div>
-  </section>
+        <div class="unified-timeline">
 
-  <!-- Footer -->
+          <!-- 1. ESRI India — Jan 2026 - Present -->
+          <div class="tl-item tl-work">
+            <div class="tl-header">
+              <span class="tl-badge tl-badge-work">Work</span>
+              <span class="tl-current">● Current</span>
+              <span class="tl-date">Jan 2026 – Present</span>
+            </div>
+            <p class="tl-role">Presales Intern</p>
+            <p class="tl-org">ESRI India · Bengaluru</p>
+            <ul class="tl-bullets">
+              <li>Support solution demonstrations and client engagements in geospatial analytics.</li>
+              <li>Build use-case driven workflows using ArcGIS tools including Business Analyst and Network Analyst.</li>
+              <li>Work on automation, data acquisition, and GeoAI solutions.</li>
+              <li>Collaborate with technical and sales teams to translate business requirements into GIS-based solutions.</li>
+            </ul>
+          </div>
+
+          <!-- 2. CyberTech GIS Intern — June 2025 - Aug 2025 -->
+          <div class="tl-item tl-work">
+            <div class="tl-header">
+              <span class="tl-badge tl-badge-work">Work</span>
+              <span class="tl-date">June 2025 – August 2025</span>
+            </div>
+            <p class="tl-role">GIS Intern</p>
+            <p class="tl-org">CyberTech · Internship</p>
+            <ul class="tl-bullets">
+              <li>Gained hands-on experience with ArcGIS, ArcGIS Enterprise, and ArcGIS Online.</li>
+              <li>Delivered a final summer project presentation using ESRI's ArcGIS StoryMaps.</li>
+            </ul>
+          </div>
+
+          <!-- 3. MSc — July 2024 - Present -->
+          <div class="tl-item tl-edu">
+            <div class="tl-header">
+              <span class="tl-badge tl-badge-edu">Education</span>
+              <span class="tl-current">● Ongoing</span>
+              <span class="tl-date">July 2024 – Present</span>
+            </div>
+            <p class="tl-role">M.Sc. — Data Science &amp; Spatial Analytics</p>
+            <p class="tl-org">Symbiosis Institute of Geoinformatics · GPA: 8.01</p>
+            <ul class="tl-bullets">
+              <li>Coursework: Geospatial Analytics, Machine Learning, Deep Learning, Big Data Analytics, IoT, Python for Geospatial Analysis, RDBMS, Research Methodology.</li>
+            </ul>
+          </div>
+
+          <!-- 4. CodSoft — January 2024 -->
+          <div class="tl-item tl-work">
+            <div class="tl-header">
+              <span class="tl-badge tl-badge-work">Work</span>
+              <span class="tl-date">January 2024</span>
+            </div>
+            <p class="tl-role">Data Science Intern</p>
+            <p class="tl-org">CodSoft · Virtual Internship</p>
+            <ul class="tl-bullets">
+              <li>Completed tasks: Titanic Survival Prediction, Movie Rating Forecast, Iris Flower Classification.</li>
+              <li>Deepened Python skills in the data science domain.</li>
+            </ul>
+          </div>
+
+          <!-- 5. BSc — Aug 2021 - Apr 2024 -->
+          <div class="tl-item tl-edu">
+            <div class="tl-header">
+              <span class="tl-badge tl-badge-edu">Education</span>
+              <span class="tl-date">Aug 2021 – April 2024</span>
+            </div>
+            <p class="tl-role">B.Sc. — Computer Science</p>
+            <p class="tl-org">Sir Parashurambhau College, Pune · CGPA: 8.12</p>
+            <ul class="tl-bullets">
+              <li>Coursework: Data Structures &amp; Algorithms, Web Technology, Python, Java, C, PostgreSQL, Operating Systems, Computer Networks, Statistics, Mathematics.</li>
+            </ul>
+          </div>
+
+          <!-- 6. Elite Softwares — Nov 2022 - Mar 2023 -->
+          <div class="tl-item tl-work">
+            <div class="tl-header">
+              <span class="tl-badge tl-badge-work">Work</span>
+              <span class="tl-date">Nov 2022 – March 2023</span>
+            </div>
+            <p class="tl-role">Web Development Python-Django Intern</p>
+            <p class="tl-org">Elite Softwares · Virtual Internship</p>
+            <ul class="tl-bullets">
+              <li>Built static and dynamic webpages using HTML, CSS, JavaScript, PHP, and Django under mentorship.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Publications ────────────────────────────────────────────── -->
+    <section class="section" id="publications" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="container">
+        <p class="section-title">Publications</p>
+        <div class="section-heading"><h2>Research work</h2></div>
+        <div class="pub-card">
+          <h3>Beyond Reality: A Study of Integrating Digital Twins</h3>
+          <p class="pub-journal">Journal of Physics: Conference Series · Vol. 2601 · October 2023</p>
+          <p style="margin-bottom:0.75rem;">
+            Explores the integration of Digital Twins, Extended Reality (XR), and the Internet of Things
+            (IoT) to address global challenges across industries — enhancing decision-making, optimising
+            processes, and contributing to sustainability in agriculture, healthcare, and manufacturing.
+          </p>
+          <p style="font-size:0.8rem;font-family:var(--font-mono);color:var(--muted);margin-bottom:1rem;">
+            A. Kolekar, S. Shalgar, I. Malawade
+          </p>
+          <div class="tags">
+            <span class="tag">Digital Twins</span>
+            <span class="tag">XR / IoT</span>
+            <span class="tag">Research</span>
+            <span class="tag tag-outline">Published</span>
+          </div>
+          <div style="margin-top:1.25rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <a href="https://doi.org/10.1088/1742-6596/2601/1/012030" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read Paper → DOI</a>
+            <a href="blogs.html" class="btn btn-outline btn-sm">Blog Post →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact ─────────────────────────────────────────────────── -->
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="section-title">Contact</p>
+        <div class="section-heading"><h2>Let's connect</h2></div>
+        <p>Open to internships, collaborations, and interesting conversations. Find me on any of the channels below.</p>
+
+        <div class="contact-links">
+
+          <!-- Email -->
+          <a href="mailto:49asvk@gmail.com" class="contact-link">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            49asvk@gmail.com
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/49asvk" target="_blank" rel="noopener" class="contact-link">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            @49asvk
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/49asvk" target="_blank" rel="noopener" class="contact-link">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            @49asvk
+          </a>
+
+          <!-- Bluesky -->
+          <a href="https://bsky.app/profile/49asvk.bsky.social" target="_blank" rel="noopener" class="contact-link">
+            <!-- Bluesky butterfly logo -->
+            <svg width="17" height="17" viewBox="0 0 568 501" fill="currentColor"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.554-149.07-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.66 0 75.293 0 57.947 0-28.906 76.134-1.611 123.121 33.664Z"/></svg>
+            @49asvk.bsky.social
+          </a>
+
+          <!-- Mastodon -->
+          <a href="https://cupoftea.social/@arv" target="_blank" rel="noopener me" class="contact-link">
+            <svg width="17" height="17" viewBox="0 0 216.4 232" fill="currentColor"><path d="M211.9 139.2c-3.3 16.7-29.5 35-59.2 38.6-15.6 2-30.9 3.8-47.2 3-26.7-1.2-47.7-6.3-47.7-6.3v7c3.5 25.4 26.3 27 50.8 27.8 24.7.8 46.7-6.1 46.7-6.1l1 19.5s-17.3 9.3-48.1 11c-17 1-38.1-.4-62.7-6.9-53.3-14.1-62.5-71-64-128.6-.5-17.1-.2-33.2-.2-46.7C31.9 23 63.8 9.7 95.5 6.5c32.1-3.3 65.4-.2 91.2 13.3 25.8 13.5 35.2 41.7 35.2 85.4v11.5c0 0 0 22.5-10 22.5z"/><path fill="var(--bg)" d="M178.3 55.5v84.4h-33.4V57.6c0-17.1-7.2-25.8-21.6-25.8-15.9 0-23.9 10.3-23.9 30.7v44.5H66V62.5c0-20.4-8-30.7-23.9-30.7-14.4 0-21.6 8.7-21.6 25.8v82.3H-13V55.5c0-17 4.3-30.5 13-40.4 8.9-9.9 20.6-15 35-15 16.7 0 29.4 6.4 37.8 19.3l8.1 13.6 8.1-13.6C97.4 6.5 110.1.1 126.8.1c14.4 0 26.1 5.1 35 15 8.7 9.9 13 23.4 13 40.4z"/></svg>
+            @arv@cupoftea.social
+          </a>
+
+          <!-- X / Twitter -->
+          <a href="https://x.com/49asvk" target="_blank" rel="noopener" class="contact-link">
+            <!-- X logo -->
+            <svg width="16" height="16" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+            @49asvk
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────────── -->
   <footer class="footer">
-    <p>&copy; 2025 DebArv | Built with love, logic, and a little bit of poetry 💫</p>
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2025 <a href="index.html">DebArv</a> · Atharv Kolekar · Built with ❤️ and GitHub Pages</p>
+        <nav class="footer-links">
+          <a href="blogs.html">Blogs</a>
+          <a href="projects.html">Projects</a>
+          <a href="chatroom.html">Chatroom</a>
+        </nav>
+      </div>
+    </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      startTyping('typed-role', [
+        'Data Scientist',
+        'GIS Specialist',
+        'Spatial Analytics Engineer',
+        'Full Stack Developer',
+        'Researcher',
+        'Open Source Builder',
+      ]);
+    });
+  </script>
 </body>
 </html>
-

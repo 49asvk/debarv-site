@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — DebArv</title>
+  <meta name="description" content="Atharv Kolekar's projects — GIS, data science, AI tools, and open source work." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">&lt;<span> DebArv </span>/&gt;</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="chatroom.html">Chatroom</a></li>
+        </ul>
+        <div class="nav-right">
+          <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+          <button id="hamburger" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div id="mobile-nav" class="mobile-nav">
+    <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="projects.html">Projects</a>
+    <a href="chatroom.html">Chatroom</a>
+  </div>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="section-title">Work</p>
+        <h1>Projects</h1>
+        <p>Things I've built — GIS platforms, ML pipelines, AI tools, and open source experiments. All source code is public.</p>
+      </div>
+    </div>
+
+    <section style="padding-bottom:5rem;">
+      <div class="container">
+        <div class="grid grid-3">
+
+          <!-- 1. Instagram Link Cleaner -->
+          <div class="project-card">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">
+                <span style="font-size:1.4rem;">🔗</span>
+                <h3>Instagram Link Cleaner</h3>
+              </div>
+              <p>Strip tracking parameters (<code style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">igsh</code>, <code style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">igshid</code>, <code style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">utm_source</code>) from any Instagram share link. 100% client-side, no data collected.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Privacy</span>
+              <span class="tag">Tool</span>
+              <span class="tag tag-outline">Static</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="tools/ig-cleaner.html" class="btn btn-green btn-sm">Try it →</a>
+              <a href="https://github.com/49asvk/ig-cleaner" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Source</a>
+            </div>
+          </div>
+
+          <!-- 2. TapMap & TapSense -->
+          <div class="project-card">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">
+                <span style="font-size:1.4rem;">🗺️</span>
+                <h3>TapMap &amp; TapSense</h3>
+              </div>
+              <p>Citizen Science + WebGIS platform to map public drinking water sources using photo validation and automatic GPS. Integrated IoT water quality sensors (TDS probe, temperature) for real-time statistical overview of clean water availability.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">ESP32</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">PHP</span>
+              <span class="tag">IoT</span>
+              <span class="tag tag-outline">WebGIS</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/49asvk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 3. Crop Classification from Space -->
+          <div class="project-card">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">
+                <span style="font-size:1.4rem;">🛰️</span>
+                <h3>Mapping Crops from Space</h3>
+              </div>
+              <p>Deep learning models for crop classification from satellite imagery over Maharashtra (Akola district). Provides accurate, up-to-date crop distribution maps to assist agricultural planning, resource management, and yield estimation.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">ArcGIS Pro</span>
+              <span class="tag">Python</span>
+              <span class="tag tag-outline">Remote Sensing</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/49asvk" target="_blank" rel="noopener" class="btn btn-outline btn-sm">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 4. Thera.py -->
+          <div class="project-card">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">
+                <span style="font-size:1.4rem;">🧠</span>
+                <h3>Thera.py</h3>
+              </div>
+              <p>A therapy chatbot built by integrating the GPT-3.5 API with a Langchain pipeline. Features a clean, user-friendly Gradio interface for seamless conversation. Designed to be accessible and low-friction.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">GPT-3.5</span>
+              <span class="tag">Langchain</span>
+              <span class="tag">Gradio</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="https://github.com/49asvk/thera.py" target="_blank" rel="noopener" class="btn btn-outline btn-sm">GitHub →</a>
+            </div>
+          </div>
+
+          <!-- 5. DebArv Chatroom -->
+          <div class="project-card">
+            <div>
+              <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">
+                <span style="font-size:1.4rem;">💬</span>
+                <h3>DebArv Chatroom</h3>
+              </div>
+              <p>Real-time dark-mode chatroom powered by Firebase Firestore. Supports Google OAuth and email/password login, custom chat usernames, live updates via <code style="font-family:var(--font-mono);font-size:0.8rem;color:var(--green);">onSnapshot</code>, and admin message deletion.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Firebase</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Firestore</span>
+              <span class="tag tag-outline">Real-time</span>
+            </div>
+            <div class="project-card-footer">
+              <a href="chatroom.html" class="btn btn-green btn-sm">Open →</a>
+              <a href="https://github.com/49asvk/debarv-site" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Source</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2025 <a href="index.html">DebArv</a> · Atharv Kolekar · Built with ❤️ and GitHub Pages</p>
+        <nav class="footer-links">
+          <a href="blogs.html">Blogs</a>
+          <a href="projects.html">Projects</a>
+          <a href="chatroom.html">Chatroom</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

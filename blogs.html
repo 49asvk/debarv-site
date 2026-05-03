@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs — DebArv</title>
+  <meta name="description" content="Atharv Kolekar's blog — research, engineering, and ideas." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav-logo">&lt;<span> DebArv </span>/&gt;</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="chatroom.html">Chatroom</a></li>
+        </ul>
+        <div class="nav-right">
+          <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+          <button id="hamburger" class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div id="mobile-nav" class="mobile-nav">
+    <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="projects.html">Projects</a>
+    <a href="chatroom.html">Chatroom</a>
+  </div>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="section-title">Writing</p>
+        <h1>Blogs</h1>
+        <p>Research, engineering thoughts, and things worth writing down. Posted occasionally.</p>
+      </div>
+    </div>
+
+    <section style="padding-bottom:5rem;">
+      <div class="container">
+        <div class="grid grid-2">
+
+          <!-- ── Published Research Paper ──────────────────────────── -->
+          <article class="post-card">
+            <div class="tags">
+              <span class="tag">Digital Twins</span>
+              <span class="tag">XR / IoT</span>
+              <span class="tag">Research</span>
+              <span class="tag tag-outline">Published · Oct 2023</span>
+            </div>
+            <h3>Beyond Reality: A Study of Integrating Digital Twins</h3>
+            <p class="post-meta">
+              A. Kolekar, S. Shalgar, I. Malawade &nbsp;·&nbsp;
+              Journal of Physics: Conference Series, Vol. 2601
+            </p>
+            <p>
+              Explores how Digital Twins, Extended Reality (XR), and the Internet of Things (IoT)
+              can work together to address global challenges in agriculture, healthcare, and
+              manufacturing — enhancing decision-making, optimising processes, and contributing to
+              a more sustainable future.
+            </p>
+            <div class="card-footer">
+              <a href="https://doi.org/10.1088/1742-6596/2601/1/012030" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                Read Paper → DOI
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="margin-top:3rem;" class="empty-state">
+          <div class="icon">✍️</div>
+          <h3 style="color:var(--white);margin-bottom:0.5rem;">More posts coming soon</h3>
+          <p>Articles on geospatial analytics, machine learning, and privacy are in the works.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2025 <a href="index.html">DebArv</a> · Atharv Kolekar · Built with ❤️ and GitHub Pages</p>
+        <nav class="footer-links">
+          <a href="blogs.html">Blogs</a>
+          <a href="projects.html">Projects</a>
+          <a href="chatroom.html">Chatroom</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

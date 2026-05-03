@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Link Cleaner — DebArv</title>
+  <meta name="description" content="Remove tracking parameters from Instagram share links. Free, private, no data collected." />
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .tool-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 0 6rem;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .input-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .tool-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .tool-input:focus { border-color: var(--green); }
+    .tool-input::placeholder { color: var(--muted); }
+
+    .output-box {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .output-box.visible { display: block; }
+    .output-box.error { border-color: var(--red); }
+    .output-box.success { border-color: var(--green); }
+
+    .output-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .output-url {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--green);
+      word-break: break-all;
+    }
+    .output-url.error-text { color: var(--red); }
+    .output-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .info-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem;
+    }
+    .info-item code {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .info-item p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .example-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .example-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all var(--transition);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .example-btn:hover { border-color: var(--green); color: var(--white); }
+
+    .copy-feedback {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--green);
+      display: none;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .copy-feedback.visible { display: flex; }
+
+    @media (max-width: 600px) {
+      .input-row { flex-direction: column; }
+      .tool-wrapper { padding: 2rem 0 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────── -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html" class="nav-logo">&lt;<span> DebArv </span>/&gt;</a>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../blogs.html">Blogs</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../chatroom.html">Chatroom</a></li>
+        </ul>
+        <div class="nav-right">
+          <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+          <button id="hamburger" class="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Mobile Nav ───────────────────────────────────────────────── -->
+  <div id="mobile-nav" class="mobile-nav">
+    <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">✕</button>
+    <a href="../index.html">Home</a>
+    <a href="../blogs.html">Blogs</a>
+    <a href="../projects.html">Projects</a>
+    <a href="../chatroom.html">Chatroom</a>
+  </div>
+
+  <main>
+    <div class="container">
+      <div class="tool-wrapper">
+
+        <!-- ── Title ──────────────────────────────────────────────── -->
+        <div style="margin-bottom:2.5rem;">
+          <a href="../projects.html" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);display:inline-flex;align-items:center;gap:0.3rem;margin-bottom:1.5rem;transition:color var(--transition);" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--muted)'">← Back to Projects</a>
+          <p class="section-title">Tool</p>
+          <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);color:var(--white);margin-bottom:0.75rem;">Instagram Link Cleaner</h1>
+          <p style="font-size:1rem;max-width:540px;">
+            Paste any Instagram share link below. We strip the tracking parameters and give
+            you a clean link — no server, no data stored, everything runs in your browser.
+          </p>
+        </div>
+
+        <!-- ── Tool Card ──────────────────────────────────────────── -->
+        <div class="tool-card">
+          <label for="ig-input" style="font-weight:600;color:var(--white);font-size:0.9rem;">Paste your Instagram link</label>
+          <div class="input-row">
+            <input
+              id="ig-input"
+              type="url"
+              class="tool-input"
+              placeholder="https://www.instagram.com/reel/ABC123/?igsh=xyz..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="btn btn-green" onclick="cleanLink()">Clean →</button>
+          </div>
+
+          <!-- Output -->
+          <div id="output-box" class="output-box">
+            <p class="output-label" id="output-label">Clean link</p>
+            <p class="output-url" id="output-url"></p>
+            <div class="output-actions" id="output-actions">
+              <button class="btn btn-outline btn-sm" onclick="copyClean()">Copy link</button>
+              <button class="btn btn-outline btn-sm" onclick="openClean()">Open in new tab ↗</button>
+              <span class="copy-feedback" id="copy-feedback">✓ Copied!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Try an Example ─────────────────────────────────────── -->
+        <div class="tool-card">
+          <p style="font-weight:600;color:var(--white);font-size:0.9rem;margin-bottom:0.25rem;">Try an example</p>
+          <p style="font-size:0.82rem;margin-bottom:0.75rem;">Click any of these sample links to see the cleaner in action.</p>
+          <div class="example-links">
+            <button class="example-btn" onclick="tryExample(this)">https://www.instagram.com/reel/ABC123xyz/?igsh=MXNkZWx1bHkxMTJraA==&amp;utm_source=ig_web_copy_link</button>
+            <button class="example-btn" onclick="tryExample(this)">https://www.instagram.com/p/DefGHIjkl/?igshid=NTc4MTIwNjQ2YQ==</button>
+            <button class="example-btn" onclick="tryExample(this)">https://www.instagram.com/reel/MnoPQRstu/?igsh=abc123&amp;utm_medium=share_sheet&amp;utm_source=ig_web_copy_link</button>
+          </div>
+        </div>
+
+        <!-- ── What Gets Removed ──────────────────────────────────── -->
+        <div class="tool-card">
+          <p style="font-weight:600;color:var(--white);font-size:0.9rem;margin-bottom:0.25rem;">What gets removed?</p>
+          <p style="font-size:0.82rem;margin-bottom:0.75rem;">Instagram adds these parameters to identify who shared the link. Removing them prevents the recipient from knowing who sent it.</p>
+          <div class="info-grid">
+            <div class="info-item">
+              <code>?igsh=</code>
+              <p>Encodes your sharing session — used to track who shared the post.</p>
+            </div>
+            <div class="info-item">
+              <code>?igshid=</code>
+              <p>Older version of the share ID tracker. Same privacy risk.</p>
+            </div>
+            <div class="info-item">
+              <code>?utm_source=</code>
+              <p>Tells Instagram where the traffic came from (e.g. share sheet).</p>
+            </div>
+            <div class="info-item">
+              <code>?utm_medium=</code>
+              <p>Identifies how the link was shared (DM, copy link, etc.).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Privacy Note ───────────────────────────────────────── -->
+        <div style="background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;font-size:0.85rem;">
+          <strong style="color:var(--green);font-size:0.8rem;font-family:var(--font-mono);letter-spacing:0.05em;text-transform:uppercase;">100% Private</strong>
+          <p style="margin-top:0.3rem;">Your links never leave your device. This tool runs entirely in JavaScript with no servers, no analytics, and no logging. <a href="https://github.com/49asvk/ig-cleaner" target="_blank" rel="noopener" style="color:var(--red);">View the source code →</a></p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2025 <a href="../index.html">DebArv</a> · Built with ❤️ and GitHub Pages</p>
+        <nav class="footer-links">
+          <a href="../blogs.html">Blogs</a>
+          <a href="../projects.html">Projects</a>
+          <a href="../chatroom.html">Chatroom</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    let cleanedUrl = '';
+
+    function cleanLink() {
+      const raw = document.getElementById('ig-input').value.trim();
+      const box = document.getElementById('output-box');
+      const urlEl = document.getElementById('output-url');
+      const labelEl = document.getElementById('output-label');
+      const actionsEl = document.getElementById('output-actions');
+
+      box.className = 'output-box visible';
+      document.getElementById('copy-feedback').classList.remove('visible');
+
+      if (!raw) {
+        box.classList.add('error');
+        urlEl.className = 'output-url error-text';
+        urlEl.textContent = 'Please paste an Instagram link first.';
+        labelEl.textContent = 'Error';
+        actionsEl.style.display = 'none';
+        cleanedUrl = '';
+        return;
+      }
+
+      try {
+        const parsed = new URL(raw);
+        if (!parsed.hostname.includes('instagram.com')) {
+          throw new Error('Not an Instagram URL');
+        }
+        cleanedUrl = 'https://www.instagram.com' + parsed.pathname;
+        box.classList.add('success');
+        urlEl.className = 'output-url';
+        urlEl.textContent = cleanedUrl;
+        labelEl.textContent = 'Clean link ✓';
+        actionsEl.style.display = 'flex';
+      } catch (e) {
+        box.classList.add('error');
+        urlEl.className = 'output-url error-text';
+        urlEl.textContent = e.message === 'Not an Instagram URL'
+          ? 'That doesn\'t look like an Instagram link. Make sure it starts with https://www.instagram.com/...'
+          : 'Invalid URL — please paste the full link including https://';
+        labelEl.textContent = 'Error';
+        actionsEl.style.display = 'none';
+        cleanedUrl = '';
+      }
+    }
+
+    function copyClean() {
+      if (!cleanedUrl) return;
+      navigator.clipboard.writeText(cleanedUrl).then(() => {
+        const fb = document.getElementById('copy-feedback');
+        fb.classList.add('visible');
+        setTimeout(() => fb.classList.remove('visible'), 2000);
+      });
+    }
+
+    function openClean() {
+      if (cleanedUrl) window.open(cleanedUrl, '_blank', 'noopener');
+    }
+
+    function tryExample(btn) {
+      const input = document.getElementById('ig-input');
+      input.value = btn.textContent.trim().replace(/&amp;/g, '&');
+      cleanLink();
+    }
+
+    /* Also trigger on Enter key */
+    document.getElementById('ig-input').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') cleanLink();
+    });
+  </script>
+</body>
+</html>
